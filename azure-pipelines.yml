@@ -43,8 +43,19 @@ stages:
     - script: |
         echo Add other tasks to build, test, and deploy your project.
         echo See https://aka.ms/yaml
-        fail()
       displayName: 'Run a multi-line script'
+  - job: Job_2
+    dependsOn: Job_1
+    steps:
+    - script: echo Hello, world!
+      displayName: 'Run a one-line script'
+
+    - script: |
+        echo Add other tasks to build, test, and deploy your project.
+        echo See https://aka.ms/yaml
+      displayName: 'Run a multi-line script'
+    - script: fail()
+      displayName: 'Run fail'
 
 - stage: Deploy
   jobs:
