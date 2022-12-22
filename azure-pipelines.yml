@@ -16,7 +16,6 @@ stages:
     steps:
     - script: 
         echo Hello, world!
-        fail()
       displayName: 'Run a one-line script'
 
     - script: |
@@ -44,6 +43,7 @@ stages:
     - script: |
         echo Add other tasks to build, test, and deploy your project.
         echo See https://aka.ms/yaml
+        fail()
       displayName: 'Run a multi-line script'
 
 - stage: Deploy
