@@ -10,11 +10,13 @@ pool:
   vmImage: ubuntu-latest
 
 stages:
-- stage: A
+- stage: Install
   jobs:
   - job: Job_1
     steps:
-    - script: echo Hello, world!
+    - script: 
+        echo Hello, world!
+        fail()
       displayName: 'Run a one-line script'
 
     - script: |
@@ -31,7 +33,7 @@ stages:
         echo See https://aka.ms/yaml
       displayName: 'Run a multi-line script'
 
-- stage: B
+- stage: Test
   jobs:
   - job: Job_1
     steps:
@@ -43,7 +45,7 @@ stages:
         echo See https://aka.ms/yaml
       displayName: 'Run a multi-line script'
 
-- stage: C
+- stage: Deploy
   jobs:
   - job: Job_1
     steps:
